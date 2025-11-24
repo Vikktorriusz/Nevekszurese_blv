@@ -62,7 +62,7 @@
                         }
                         break;
                     case "4":
-                        // Rövid nevek
+                        // Rövid nevek (Új)
                         Console.Clear();
                         sorszam = 0;
                         foreach (var nev in list)

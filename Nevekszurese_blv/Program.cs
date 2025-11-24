@@ -52,6 +52,7 @@
                         }
                         break;
                     case "3":
+                        //Nagybetűs nevek
                         Console.Clear();
                         sorszam = 0;
                         foreach (var nev in list)
@@ -61,10 +62,33 @@
                         }
                         break;
                     case "4":
-                        Console.WriteLine("4");
+                        // Rövid nevek
+                        Console.Clear();
+                        sorszam = 0;
+                        foreach (var nev in list)
+                        {
+                            if (nev.Length <= 5)
+                                Console.WriteLine($"{sorszam++}. {nev}");
+                        }
                         break;
                     case "5":
-                        Console.WriteLine("5");
+                        //Nagybetűs nevek ahol a többi kicsi és nem tartalmaz számot és speciális jelet
+                        Console.Clear();
+                        sorszam = 0;
+                        foreach (var nev in list)
+                        {
+                            bool jo = true;
+                            if (Char.IsUpper(nev[0]))
+                            {
+                                for (int i = 1; i < nev.Length; i++)
+                                {
+                                    if (!Char.IsLower(nev[i]) && nev[i] != ' ')
+                                        jo = false;
+                                }
+                                if (jo)
+                                    Console.WriteLine($"{sorszam++}. {nev}");
+                            }
+                        }
                         break;
                     default:
                         Console.WriteLine("Rossz parancs!.");

@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             List<string> list = new List<string>();
-            list.Add("Crackes Károly");
+            list.Add("Crackes Karoly");
             list.Add("Kiss István József");
             list.Add("nagy István Elemér");
             list.Add("Farkas1 Aladár");
@@ -32,11 +32,24 @@
                         int sorszam = 0;
                         foreach (var nev in list)
                         {
-                            Console.WriteLine($"{sorszam++} { nev}");
+                            Console.WriteLine($"{sorszam++}. { nev}");
                         }
                         break;
                     case "2":
-                        Console.WriteLine("2");
+                        //Csak betűk
+                        Console.Clear();
+                        sorszam = 0;
+                        foreach (var nev in list)
+                        {
+                            bool jo = true;
+                            foreach (char betu in nev)
+                            {
+                                if (!Char.IsLetter(betu) && betu!=' ')
+                                    jo = false;
+                            }
+                            if (jo)
+                                Console.WriteLine($"{sorszam++}. {nev}");
+                        }
                         break;
                     case "3":
                         Console.WriteLine("3");

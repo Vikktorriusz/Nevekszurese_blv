@@ -52,7 +52,13 @@
                         }
                         break;
                     case "3":
-                        Console.WriteLine("3");
+                        Console.Clear();
+                        sorszam = 0;
+                        foreach (var nev in list)
+                        {
+                            if (Char.IsUpper(nev[0]))
+                                Console.WriteLine($"{sorszam++}. {nev}");
+                        }
                         break;
                     case "4":
                         Console.WriteLine("4");

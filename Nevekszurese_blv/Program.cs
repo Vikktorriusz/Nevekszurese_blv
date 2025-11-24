@@ -78,16 +78,20 @@
                         foreach (var nev in list)
                         {
                             bool jo = true;
-                            if (Char.IsUpper(nev[0]))
+                            foreach (char betu in nev)
                             {
-                                for (int i = 1; i < nev.Length; i++)
-                                {
-                                    if (!Char.IsLower(nev[i]) && nev[i] != ' ')
-                                        jo = false;
-                                }
-                                if (jo)
-                                    Console.WriteLine($"{sorszam++}. {nev}");
+                                if (!Char.IsLetter(betu) && betu != ' ')
+                                    jo = false;
                             }
+                            String[] nevdarabok = nev.Split(" ");
+                            foreach (var nevdarab in nevdarabok)
+                            {
+                                if (!Char.IsUpper(nevdarab[0]))
+                                    jo = false;
+                                if (nevdarab.Substring(1) == nevdarab.Substring(1).ToLower() == false)
+                                    jo = false;
+                            }
+                            if (jo) Console.WriteLine($"{sorszam++}. {nev}");
                         }
                         break;
                     default:
